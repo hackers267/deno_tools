@@ -1,5 +1,5 @@
 import { assertEquals } from "../deps.ts";
-import { isIDCard } from "./iDCard.ts";
+import { calcValidator, isIDCard } from "./iDCard.ts";
 
 Deno.test("isIDCard with man", () => {
   const idCards: string[] = [
@@ -37,4 +37,14 @@ Deno.test("isIDCard with 15", () => {
   idCards.forEach((id) => {
     assertEquals(isIDCard(id), true);
   });
+});
+Deno.test("calcValidator", () => {
+  const strings = ["34102419760815890",
+    "32098219881208620"];
+  const expected = ['9','4'];
+  strings.forEach((str,i)=>{
+    const result = calcValidator(str);
+    assertEquals(result, expected[i]);
+  })
+
 });
