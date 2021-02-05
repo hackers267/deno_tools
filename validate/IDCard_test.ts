@@ -28,13 +28,13 @@ Deno.test("isIDCard with woman", () => {
   });
 });
 
-Deno.test("isIDCard with 15",()=>{
+Deno.test("isIDCard with 15", () => {
   const idCards: string[] = [
-    '130503670401001',
-    '320311770706001',
-    '320311770706002'
+    "130503670401001",
+    "320311770706001",
+    "320311770706002",
   ];
   idCards.forEach((id) => {
     assertEquals(isIDCard(id), true);
   });
-})
+});
