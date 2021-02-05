@@ -8,7 +8,11 @@ export function isIDCard(string: string): boolean {
   const lengthEqual15 = lengthEqual(15);
   const no_space_str = getNoSpaceStr(string);
   if (lengthEqual18(no_space_str)) {
-    return true;
+    const iDCardReg = /^\d{6}\d{8}\d{3}[0-9xX]$/;
+    const match = no_space_str.match(iDCardReg);
+    console.log(match);
+    return !!match;
+
   }
   return lengthEqual15(no_space_str);
 }
