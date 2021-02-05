@@ -10,9 +10,9 @@ export function isIDCard(string: string): boolean {
   if (lengthEqual18(no_space_str)) {
     const iDCardReg = /^\d{6}\d{8}\d{3}[0-9xX]$/;
     const match = no_space_str.match(iDCardReg);
-    console.log(match);
-    return !!match;
-
+    if (!match) return false;
+    const validator = calcValidator(no_space_str.slice(0, 17));
+    return validator === no_space_str.slice(17);
   }
 
   return lengthEqual15(no_space_str);
